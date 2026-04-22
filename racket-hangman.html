@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tennis Racket Hangman</title>
+
+<style>
+body {
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #fff200;
+    text-shadow: 0 0 15px #fff200;
+}
+
+/* 🎾 SVG RACKET */
+.racket {
+    width: 220px;
+    height: 320px;
+    margin: 30px auto;
+    display: block;
+}
+
+/* STRING STYLE */
+.string {
+    stroke: white;
+    stroke-width: 2;
+    transition: opacity 0.3s ease;
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+}
+
+#word {
+    font-size: 24px;
+    letter-spacing: 6px;
+    margin: 15px;
+}
+
+#msg {
+    color: red;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎾 Tennis Racket Hangman</h1>
+
+<p>Pick vowel (A, E, I, O, U)</p>
+<input id="start" maxlength="1">
+<button onclick="startGame()">Start</button>
+
+<!-- 🎾 RACKET -->
+<svg class="racket" viewBox="0 0 200 300">
+
+  <!-- frame -->
+  <ellipse cx="100" cy="110" rx="70" ry="95"
+           stroke="lime" stroke-width="6" fill="none"/>
+
+  <!-- handle -->
+  <rect x="92" y="205" width="16" height="80" rx="4" fill="lime"/>
+
+  <!-- 🎾 VERTICAL MAINS (FIXED + PROPERLY SPACED) -->
+  <path class="string" d="M70 25 Q78 110 70 195"/>
+  <path class="string" d="M85 25 Q92 110 85 195"/>
+  <path class="string" d="M100 25 Q100 110 100 195"/>
+  <path class="string" d="M115 25 Q108 110 115 195"/>
+  <path class="string" d="M130 25 Q122 110 130 195"/>
+
+  <!-- 🎾 HORIZONTAL CROSS STRINGS -->
+  <path class="string" d="M55 70 Q100 75 145 70"/>
+  <path class="string" d="M55 95 Q100 100 145 95"/>
+  <path class="string" d="M55 120 Q100 125 145 120"/>
+  <path class="string" d="M55 145 Q100 150 145 145"/>
+
+</svg>
+
+<div id="word"></div>
+
+<input id="guess" maxlength="1">
+<button onclick="guess()">Guess</button>
+
+<p id="wrong"></p>
+<p id="msg"></p>
+
+<script>
+
+let phrase = "";
+let display = [];
+let wrong = 0;
+
+const phrases = {
+    a: "alcaraz ate my serve",
+    e: "every error is my lifestyle",
+    i: "i double fault under pressure",
+    o: "oops i hit another net cord",
+    u: "unforced errors are my talent"
+};
+
+let strings = document.querySelectorAll(".string");
+
+function startGame() {
+    let letter = document.getElementById("start").value.toLowerCase();
+
+    phrase = phrases[letter];
+
+    if (!phrase) {
+        document.getElementById("msg").innerText = "Only vowels allowed";
+        return;
+    }
+
+    display = Array(phrase.length).fill("_");
+    wrong = 0;
+
+    strings.forEach(s => s.style.opacity = 1);
+
+    update();
+    document.getElementById("msg").innerText = "Game started!";
+}
+
+function update() {
+    document.getElementById("word").innerText = display.join(" ");
+    document.getElementById("wrong").innerText = "Wrong: " + wrong;
+}
+
+function guess() {
+    let g = document.getElementById("guess").value.toLowerCase();
+    document.getElementById("guess").value = "";
+
+    if (!g) return;
+
+    if (phrase.includes(g)) {
+        for (let i = 0; i < phrase.length; i++) {
+            if (phrase[i] === g) display[i] = g;
+        }
+    } else {
+        if (wrong < strings.length) {
+            strings[wrong].style.opacity = 0;
+            wrong++;
+        }
+    }
+
+    update();
+    checkWin();
+}
+
+function checkWin() {
+    if (!display.includes("_")) {
+        document.getElementById("msg").innerText = "🎉 You win!";
+    }
+
+    if (wrong >= strings.length) {
+        document.getElementById("msg").innerText =
+            "💀 Racket destroyed! Phrase: " + phrase;
+    }
+}
+
+</script>
+
+</body>
+</html>

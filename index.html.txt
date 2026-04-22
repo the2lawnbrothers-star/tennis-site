@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tennis</title>
+
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 80px;
+        font-weight: bold;
+        color: #fff200;
+        text-shadow: 0 0 15px #fff200, 0 0 30px #fff200;
+    }
+
+    h2, h3 {
+        text-decoration: underline;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .nav {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        background-color: #111;
+        margin: 20px auto;
+        padding: 20px;
+        width: 85%;
+        border: 2px solid lime;
+        box-shadow: 0 0 10px lime;
+    }
+
+    .tennis-ball {
+        width: 200px;
+        height: 200px;
+        border: 5px solid lime;
+        border-radius: 50%;
+        margin: 20px auto;
+        box-shadow: 0 0 20px lime;
+    }
+
+    img {
+        width: 200px;
+        margin-left: 10px;
+    }
+
+    ul, ol {
+        text-align: left;
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+    }
+
+    iframe {
+        border: 3px solid lime;
+        box-shadow: 0 0 15px lime;
+        margin-top: 15px;
+    }
+
+    /* 🎯 BUTTON STYLE */
+    .resume-button {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 15px;
+        background-color: lime;
+        color: black;
+        font-weight: bold;
+        border-radius: 6px;
+        text-decoration: none;
+        box-shadow: 0 0 10px lime;
+        transition: 0.2s;
+    }
+
+    .resume-button:hover {
+        background-color: white;
+        box-shadow: 0 0 20px white;
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>Tennis</h1>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+    <h2>Jump to Section</h2>
+
+    <ol>
+        <li>
+            <a href="#howto">How to Play</a>
+            <ul>
+                <li><a href="#serve">Serve basics</a></li>
+                <li><a href="#forehand">Forehand basics</a></li>
+                <li><a href="#backhand">Backhand basics</a></li>
+                <li><a href="#volley">Volley basics</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#players">Current Top Players</a></li>
+        <li><a href="#brands">Racket Brands</a></li>
+        <li><a href="#tableau">Tennis Stats Graph</a></li>
+    </ol>
+
+    <!-- 🎯 BUTTONS -->
+    <a class="resume-button" href="resume.html">
+        ← Back to Resume
+    </a>
+
+    <!-- 🎾 NEW GAME BUTTON -->
+    <a class="resume-button" href="racket-hangman.html">
+        🎾 Play Tennis Racket Hangman
+    </a>
+</div>
+
+<div class="tennis-ball"></div>
+
+<!-- HOW TO PLAY -->
+<div class="card">
+<section id="howto">
+
+    <h2>How to Play</h2>
+
+    <h3 id="serve">Serve</h3>
+    <p>The serve starts every point and gives control of the rally.</p>
+
+    <iframe width="400" height="250"
+        src="https://www.youtube.com/embed/NDyuKqixhyc"
+        allowfullscreen>
+    </iframe>
+
+    <h3 id="forehand">Forehand</h3>
+    <p>The forehand is one of the most powerful shots in tennis.</p>
+
+    <img src="https://www.telegraph.co.uk/content/dam/tennis/2022/09/15/TELEMMGLPICT000309433403_trans_NvBQzQNjv4BqHjsp1KwWZ7vIyA5cbmKWfL1XUHDjG5mtrKDMVSe7bnA.jpeg">
+
+    <h3 id="backhand">Backhand</h3>
+    <p>The backhand is hit on the opposite side of the body.</p>
+
+    <img src="https://www.tennisnet.com/fileadmin/_processed_/a/2/csm_Gael_Monfils_Genf_Ru__ckhandsmash_eb248dd59c.jpg">
+
+    <h3 id="volley">Volley</h3>
+    <p>A volley is hit before the ball bounces.</p>
+
+    <img src="https://tse1.mm.bing.net/th/id/OIP.YCHQs1vq7MSaR0bLi25_1QHaEK?rs=1&pid=ImgDetMain&o=7&rm=3">
+
+</section>
+</div>
+
+<!-- PLAYERS -->
+<div class="card">
+<section id="players">
+
+    <h2>Current Top Players</h2>
+
+    <h3>Sinner</h3>
+    <p>Powerful baseline game and consistency.</p>
+    <img src="https://www.atptour.com/-/media/images/news/2023/07/11/15/43/sinner-wimbledon-2023-tuesday.jpg">
+
+    <h3>Alcaraz</h3>
+    <p>Fast, creative, and aggressive style.</p>
+    <img src="https://www.nittoatpfinals.com/-/media/images/news/2024/06/09/17/40/alcaraz-roland-garros-2024-final-celebration.jpg">
+
+    <h3>Zverev</h3>
+    <p>Strong serve and elite backhand.</p>
+    <img src="https://www.atptour.com/-/media/images/news/2023/05/28/17/11/zverev-roland-garros-2023-backhand.jpg">
+
+</section>
+</div>
+
+<!-- TABLEAU -->
+<div class="card" id="tableau">
+
+    <h2>Tennis Performance Stats (Live Tableau Dashboard)</h2>
+
+    <iframe 
+        src="https://public.tableau.com/views/DominanceinMensTennis/DominanceinMensTennis2?:showVizHome=no&:embed=true"
+        width="100%" 
+        height="650"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+<!-- BRANDS -->
+<div class="card">
+<section id="brands">
+
+    <h2>Racket Brands</h2>
+
+    <h3>Babolat</h3>
+    <p>Power-focused rackets.</p>
+    <img src="https://img.tennisonly.com.au/watermark/rsg.php?path=/marketing/TWABBABRA-ad.jpg&nw=1100">
+
+    <h3>Wilson</h3>
+    <p>Control and precision rackets.</p>
+    <img src="https://tennisracketball.com/wp-content/uploads/2022/08/best_wilson_tennis_rackets_options-768x512.jpg">
+
+    <h3>Head</h3>
+    <p>Balanced performance and innovation.</p>
+    <img src="https://www.thetennistribe.com/wp-content/uploads/Head-Boom-and-Head-Speed-tennis-racquets-on-the-tennis-court-1024x768.jpg">
+
+</section>
+</div>
+
+</body>
+</html>
